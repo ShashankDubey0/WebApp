@@ -1,0 +1,39 @@
+<form>
+    <div class="mb-3" *ngIf="employee?.empId!=0">
+        <label for="empId" class="form-label">Employee Id</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.employeeId" name="employeeId" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="empName" class="form-label">Employee Name</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.empName" name="empName">
+    </div>
+    <div class="mb-3">
+        <label for="empCode" class="form-label">Employee Code</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.empCode" name="empCode">
+    </div>
+    <div class="mb-3">
+        <label for="employeeAge" class="form-label">Employee Age</label>
+        <select type="text" class="form-control" [(ngModel)]="employee.employeeAge" name="employeeAge">
+            <option *ngFor="let val of counter(100);let i = index" [value]="i">{{i}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="employeeAddress" class="form-label">Employee Address</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.employeeAddress" name="employeeAddress">
+    </div>
+    <div class="mb-3">
+        <label for="empLocation" class="form-label">Employee Location</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.empLocation" name="empLocation">
+    </div>
+    <div class="mb-3">
+        <label for="empActive" class="form-label">Status</label>
+        <select type="text" class="form-control" [(ngModel)]="employee.empActive" name="empActive">
+            <option [value]="true">Active</option>
+            <option [value]="false">Inactive</option>
+        </select>
+    </div>
+
+    <button (click)="AddEmployee()" *ngIf="employee?.empId==0" class="btn btn-primary"> Add</button>
+
+    <button (click)="UpdateEmployee(employee)" *ngIf="employee?.empId!=0" class="btn btn-primary"> Update</button>
+</form>
